@@ -19,12 +19,14 @@ import EmployeeRoute from "./components/routes/EmployeeRoute";
 const Error404 = lazy(() => import("./components/pages/Error404"));
 const AdminDashboard = lazy(() => import("./components/pages/admin/Dashboard"));
 const ResidentDashboard = lazy(() =>
-  import("./components/pages/resident/Dashboard")
+  import("./components/pages/resident/dashboard/Dashboard")
 );
 const EmployeeDashboard = lazy(() =>
   import("./components/pages/employee/Dashboard")
 );
 const Main = lazy(() => import("./components/pages/main/Main"));
+const Login = lazy(() => import("./components/pages/login/Login"));
+const Signup = lazy(() => import("./components/pages/signup/Signup"));
 const NotFoundRedirect = () => <Redirect to="/404" />;
 
 const mmainTheme = createTheme({
@@ -141,6 +143,12 @@ function App() {
               <Switch>
                 <Route path="/" exact>
                   <Main deconnexion={deconnexion} />
+                </Route>
+                <Route path="/connexion" exact>
+                  <Login connexion={connexion} />
+                </Route>
+                <Route path="/inscription" exact>
+                  <Signup connexion={connexion} />
                 </Route>
                 {/* Resident routes */}
                 <ResidentRoute path="/tableau-de-bord">

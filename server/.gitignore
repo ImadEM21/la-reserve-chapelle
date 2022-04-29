@@ -10,6 +10,8 @@
 
 # production
 /build
+/images
+/files
 
 # misc
 .env
